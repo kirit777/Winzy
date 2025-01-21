@@ -1,0 +1,282 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%lld" : {
+
+    },
+    "2m ago" : {
+
+    },
+    "Accent Color" : {
+
+    },
+    "Accept" : {
+
+    },
+    "Access Denied" : {
+
+    },
+    "Active Hours" : {
+
+    },
+    "Add New Chat" : {
+
+    },
+    "Add your status" : {
+
+    },
+    "Add/Remove Members" : {
+
+    },
+    "Analytics & Activity" : {
+
+    },
+    "Apply Changes" : {
+
+    },
+    "Badges & Achievements" : {
+
+    },
+    "Blocked Users" : {
+
+    },
+    "Calls" : {
+
+    },
+    "Camera" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Change" : {
+
+    },
+    "Change Group Name" : {
+
+    },
+    "Change Group Wallpaper" : {
+
+    },
+    "Chat Activity" : {
+
+    },
+    "Chat Settings" : {
+
+    },
+    "Choose Wallpaper" : {
+
+    },
+    "Close Menu" : {
+
+    },
+    "Connecting..." : {
+
+    },
+    "Custom" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Day" : {
+
+    },
+    "Decline" : {
+
+    },
+    "Disabled" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Enable Sound" : {
+
+    },
+    "Enable Two-Step Authentication" : {
+
+    },
+    "Enable Vibration" : {
+
+    },
+    "Enabled" : {
+
+    },
+    "Filter" : {
+
+    },
+    "Frequent Contact: %@" : {
+
+    },
+    "Friend Requests" : {
+
+    },
+    "Friend Requests & Contacts" : {
+
+    },
+    "Get Started!" : {
+
+    },
+    "Group Settings" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Import Contacts from Phonebook" : {
+
+    },
+    "Just now" : {
+
+    },
+    "Light" : {
+
+    },
+    "Login" : {
+
+    },
+    "Media Gallery" : {
+
+    },
+    "Mute Notifications" : {
+
+    },
+    "Name" : {
+
+    },
+    "Next" : {
+
+    },
+    "No Contacts Found" : {
+
+    },
+    "Notification Settings" : {
+
+    },
+    "Notifications" : {
+
+    },
+    "Other Settings" : {
+
+    },
+    "Pending..." : {
+
+    },
+    "Phone" : {
+
+    },
+    "Pick Accent Color" : {
+
+    },
+    "Please enable contact access in your settings to find registered contacts." : {
+
+    },
+    "Privacy Settings" : {
+
+    },
+    "Profile" : {
+
+    },
+    "Profile Settings" : {
+
+    },
+    "Recent Media" : {
+
+    },
+    "Save Settings" : {
+
+    },
+    "Search" : {
+
+    },
+    "Select a Country Code" : {
+
+    },
+    "Select Document" : {
+
+    },
+    "Select Media" : {
+
+    },
+    "Select Theme" : {
+
+    },
+    "Select Wallpaper" : {
+
+    },
+    "Set Wallpaper" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Status" : {
+
+    },
+    "Submit OTP" : {
+
+    },
+    "Submitting..." : {
+
+    },
+    "Theme & Customization" : {
+
+    },
+    "Theme Settings" : {
+
+    },
+    "Type a message..." : {
+
+    },
+    "Unblock" : {
+
+    },
+    "Update" : {
+
+    },
+    "User Name" : {
+
+    },
+    "Username" : {
+
+    },
+    "Video" : {
+
+    },
+    "Video Call" : {
+
+    },
+    "Voice & Video Call Settings" : {
+
+    },
+    "Wallpaper 1" : {
+
+    },
+    "Wallpaper 2" : {
+
+    },
+    "Wallpaper 3" : {
+
+    },
+    "Welcome to Winzy!" : {
+
+    },
+    "Winzy" : {
+
+    },
+    "Winzy Chat" : {
+
+    },
+    "You don't have any contacts saved on your device." : {
+
+    },
+    "Your Contacts" : {
+
+    }
+  },
+  "version" : "1.0"
+}

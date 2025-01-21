@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3134F0142D2688CE004653C8 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 3134F0132D2688CE004653C8 /* Starscream */; };
+		3134F0162D269AEF004653C8 /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134F0152D269ADF004653C8 /* String+ext.swift */; };
+		316C13A22D27C877008EDCF4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 316C13A12D27C877008EDCF4 /* Localizable.xcstrings */; };
+		317249C62D23C76F002D39C4 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317249C52D23C76C002D39C4 /* Custom.swift */; };
+		3192E5B62D29252900A93180 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3192E5B52D29252900A93180 /* FirebaseDatabase */; };
+		3192E5B82D2926E600A93180 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3192E5B72D2926E600A93180 /* GoogleService-Info.plist */; };
+		31BE7BD02D1EADC000457F00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BE7BCA2D1EADC000457F00 /* Preview Assets.xcassets */; };
+		31BE7BD12D1EADC000457F00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BE7BCC2D1EADC000457F00 /* Assets.xcassets */; };
+		31BE7BD22D1EADC000457F00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BCD2D1EADC000457F00 /* ContentView.swift */; };
+		31BE7BD32D1EADC000457F00 /* WinzyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BCE2D1EADC000457F00 /* WinzyApp.swift */; };
+		31BE7BD62D1EADCA00457F00 /* WinzyChatLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BD52D1EADC800457F00 /* WinzyChatLoginScreen.swift */; };
+		31BE7BD82D1EAF7800457F00 /* UserListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BD72D1EAF7700457F00 /* UserListScreen.swift */; };
+		31BE7BDB2D1EB03C00457F00 /* AddNewChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BDA2D1EB03B00457F00 /* AddNewChatScreen.swift */; };
+		31BE7BDD2D1EB18C00457F00 /* ChatDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BDC2D1EB18B00457F00 /* ChatDetailScreen.swift */; };
+		31BE7BDF2D1EB2B300457F00 /* EditProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BDE2D1EB2B200457F00 /* EditProfileScreen.swift */; };
+		31BE7BE12D1EB43800457F00 /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BE02D1EB43600457F00 /* StatusScreen.swift */; };
+		31BE7BE32D1EB52000457F00 /* CallHistoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BE22D1EB51F00457F00 /* CallHistoryScreen.swift */; };
+		31BE7BE62D1EB5C500457F00 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BE52D1EB5C500457F00 /* LaunchScreen.swift */; };
+		31BE7BE92D1EB6F100457F00 /* VideoCallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BE82D1EB6F000457F00 /* VideoCallScreen.swift */; };
+		31BE7BEC2D1EB82400457F00 /* CustomCameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BEB2D1EB82400457F00 /* CustomCameraScreen.swift */; };
+		31BE7BEE2D1EC30D00457F00 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BED2D1EC30B00457F00 /* SearchScreen.swift */; };
+		31BE7BF12D1ECD4F00457F00 /* ChatSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BF02D1ECD4E00457F00 /* ChatSettingsScreen.swift */; };
+		31BE7BF42D1ECD9D00457F00 /* GroupChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BF32D1ECD9D00457F00 /* GroupChatScreen.swift */; };
+		31BE7BF72D1ECDD600457F00 /* NotificationCenterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BF62D1ECDD600457F00 /* NotificationCenterScreen.swift */; };
+		31BE7BF92D1ECEB000457F00 /* MediaGalleryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BF82D1ECEB000457F00 /* MediaGalleryScreen.swift */; };
+		31BE7BFC2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BFB2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift */; };
+		31BE7BFE2D1ECF1A00457F00 /* PrivacySettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BFD2D1ECF1A00457F00 /* PrivacySettingsScreen.swift */; };
+		31BE7C002D1ECF4700457F00 /* UserAnalyticsActivityScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7BFF2D1ECF4600457F00 /* UserAnalyticsActivityScreen.swift */; };
+		31BE7C032D1ECF7400457F00 /* ThemeCustomizationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7C022D1ECF7300457F00 /* ThemeCustomizationScreen.swift */; };
+		31BE7C062D1ECFAC00457F00 /* AppWalkthroughScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7C052D1ECFAA00457F00 /* AppWalkthroughScreen.swift */; };
+		31BE7C082D1ECFD100457F00 /* CallSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BE7C072D1ECFD000457F00 /* CallSettingsScreen.swift */; };
+		31CB40D82D22835300DBB008 /* WinzyChatOTPScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CB40D72D22835200DBB008 /* WinzyChatOTPScreen.swift */; };
+		31CB40DB2D2287C200DBB008 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31CB40DA2D2287C200DBB008 /* FirebaseAuth */; };
+		31CB40E12D22C26B00DBB008 /* CustomeTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CB40E02D22C25C00DBB008 /* CustomeTabbarView.swift */; };
+		31D7A1322D254E68007B824C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31D7A1312D254E68007B824C /* FirebaseAnalytics */; };
+		31D7A1342D254E68007B824C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31D7A1332D254E68007B824C /* FirebaseCrashlytics */; };
+		31D7A1362D254E68007B824C /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 31D7A1352D254E68007B824C /* FirebaseInAppMessaging-Beta */; };
+		31D7A1382D254E68007B824C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 31D7A1372D254E68007B824C /* FirebaseMessaging */; };
+		31E2BA4D2D2C00CB001046A0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2BA4C2D2C00C4001046A0 /* ImagePicker.swift */; };
+		31E2BA4F2D2C05D5001046A0 /* PermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2BA4E2D2C05CA001046A0 /* PermissionsHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3134F0152D269ADF004653C8 /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
+		316C13A12D27C877008EDCF4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		317249C52D23C76C002D39C4 /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		3192E5B72D2926E600A93180 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31BE7BB92D1EAD6300457F00 /* Winzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Winzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31BE7BCA2D1EADC000457F00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31BE7BCC2D1EADC000457F00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31BE7BCD2D1EADC000457F00 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		31BE7BCE2D1EADC000457F00 /* WinzyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinzyApp.swift; sourceTree = "<group>"; };
+		31BE7BD52D1EADC800457F00 /* WinzyChatLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinzyChatLoginScreen.swift; sourceTree = "<group>"; };
+		31BE7BD72D1EAF7700457F00 /* UserListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListScreen.swift; sourceTree = "<group>"; };
+		31BE7BDA2D1EB03B00457F00 /* AddNewChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChatScreen.swift; sourceTree = "<group>"; };
+		31BE7BDC2D1EB18B00457F00 /* ChatDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailScreen.swift; sourceTree = "<group>"; };
+		31BE7BDE2D1EB2B200457F00 /* EditProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreen.swift; sourceTree = "<group>"; };
+		31BE7BE02D1EB43600457F00 /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
+		31BE7BE22D1EB51F00457F00 /* CallHistoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHistoryScreen.swift; sourceTree = "<group>"; };
+		31BE7BE52D1EB5C500457F00 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		31BE7BE82D1EB6F000457F00 /* VideoCallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallScreen.swift; sourceTree = "<group>"; };
+		31BE7BEB2D1EB82400457F00 /* CustomCameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraScreen.swift; sourceTree = "<group>"; };
+		31BE7BED2D1EC30B00457F00 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		31BE7BF02D1ECD4E00457F00 /* ChatSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSettingsScreen.swift; sourceTree = "<group>"; };
+		31BE7BF32D1ECD9D00457F00 /* GroupChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatScreen.swift; sourceTree = "<group>"; };
+		31BE7BF62D1ECDD600457F00 /* NotificationCenterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterScreen.swift; sourceTree = "<group>"; };
+		31BE7BF82D1ECEB000457F00 /* MediaGalleryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGalleryScreen.swift; sourceTree = "<group>"; };
+		31BE7BFB2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsContactsScreen.swift; sourceTree = "<group>"; };
+		31BE7BFD2D1ECF1A00457F00 /* PrivacySettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsScreen.swift; sourceTree = "<group>"; };
+		31BE7BFF2D1ECF4600457F00 /* UserAnalyticsActivityScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnalyticsActivityScreen.swift; sourceTree = "<group>"; };
+		31BE7C022D1ECF7300457F00 /* ThemeCustomizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCustomizationScreen.swift; sourceTree = "<group>"; };
+		31BE7C052D1ECFAA00457F00 /* AppWalkthroughScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWalkthroughScreen.swift; sourceTree = "<group>"; };
+		31BE7C072D1ECFD000457F00 /* CallSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSettingsScreen.swift; sourceTree = "<group>"; };
+		31CB40D72D22835200DBB008 /* WinzyChatOTPScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinzyChatOTPScreen.swift; sourceTree = "<group>"; };
+		31CB40DE2D22AE6D00DBB008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		31CB40E02D22C25C00DBB008 /* CustomeTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomeTabbarView.swift; sourceTree = "<group>"; };
+		31D7A1282D250208007B824C /* Winzy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Winzy.entitlements; sourceTree = "<group>"; };
+		31E2BA4C2D2C00C4001046A0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		31E2BA4E2D2C05CA001046A0 /* PermissionsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31BE7BB62D1EAD6300457F00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D7A1342D254E68007B824C /* FirebaseCrashlytics in Frameworks */,
+				31D7A1322D254E68007B824C /* FirebaseAnalytics in Frameworks */,
+				31D7A1382D254E68007B824C /* FirebaseMessaging in Frameworks */,
+				31CB40DB2D2287C200DBB008 /* FirebaseAuth in Frameworks */,
+				31D7A1362D254E68007B824C /* FirebaseInAppMessaging-Beta in Frameworks */,
+				3192E5B62D29252900A93180 /* FirebaseDatabase in Frameworks */,
+				3134F0142D2688CE004653C8 /* Starscream in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		317249C42D23C766002D39C4 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				31E2BA4E2D2C05CA001046A0 /* PermissionsHelper.swift */,
+				31E2BA4C2D2C00C4001046A0 /* ImagePicker.swift */,
+				3134F0152D269ADF004653C8 /* String+ext.swift */,
+				317249C52D23C76C002D39C4 /* Custom.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		31BE7BB02D1EAD6300457F00 = {
+			isa = PBXGroup;
+			children = (
+				31BE7BCF2D1EADC000457F00 /* Winzy */,
+				31BE7BBA2D1EAD6300457F00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		31BE7BBA2D1EAD6300457F00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BB92D1EAD6300457F00 /* Winzy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31BE7BCB2D1EADC000457F00 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BCA2D1EADC000457F00 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		31BE7BCF2D1EADC000457F00 /* Winzy */ = {
+			isa = PBXGroup;
+			children = (
+				31D7A1282D250208007B824C /* Winzy.entitlements */,
+				317249C42D23C766002D39C4 /* Custom */,
+				31CB40DE2D22AE6D00DBB008 /* Info.plist */,
+				31BE7BE42D1EB5BB00457F00 /* Lounch */,
+				31BE7BD92D1EB03600457F00 /* Main */,
+				31BE7BD42D1EADC300457F00 /* Login */,
+				31BE7BCB2D1EADC000457F00 /* Preview Content */,
+				31BE7BCC2D1EADC000457F00 /* Assets.xcassets */,
+				31BE7BCD2D1EADC000457F00 /* ContentView.swift */,
+				31BE7BCE2D1EADC000457F00 /* WinzyApp.swift */,
+				316C13A12D27C877008EDCF4 /* Localizable.xcstrings */,
+				3192E5B72D2926E600A93180 /* GoogleService-Info.plist */,
+			);
+			path = Winzy;
+			sourceTree = "<group>";
+		};
+		31BE7BD42D1EADC300457F00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				31CB40D72D22835200DBB008 /* WinzyChatOTPScreen.swift */,
+				31BE7BD72D1EAF7700457F00 /* UserListScreen.swift */,
+				31BE7BD52D1EADC800457F00 /* WinzyChatLoginScreen.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		31BE7BD92D1EB03600457F00 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				31CB40DF2D22C25600DBB008 /* Tabs */,
+				31BE7C042D1ECFA500457F00 /* Intro */,
+				31BE7C012D1ECF6E00457F00 /* Themes */,
+				31BE7BFF2D1ECF4600457F00 /* UserAnalyticsActivityScreen.swift */,
+				31BE7BFA2D1ECEE900457F00 /* Friend */,
+				31BE7BF82D1ECEB000457F00 /* MediaGalleryScreen.swift */,
+				31BE7BF52D1ECDCE00457F00 /* Notification */,
+				31BE7BF22D1ECD9700457F00 /* GroupChat */,
+				31BE7BEF2D1ECD4800457F00 /* Settings */,
+				31BE7BED2D1EC30B00457F00 /* SearchScreen.swift */,
+				31BE7BEA2D1EB81F00457F00 /* Camera */,
+				31BE7BE72D1EB6E800457F00 /* VideoCall */,
+				31BE7BE22D1EB51F00457F00 /* CallHistoryScreen.swift */,
+				31BE7BE02D1EB43600457F00 /* StatusScreen.swift */,
+				31BE7BDE2D1EB2B200457F00 /* EditProfileScreen.swift */,
+				31BE7BDC2D1EB18B00457F00 /* ChatDetailScreen.swift */,
+				31BE7BDA2D1EB03B00457F00 /* AddNewChatScreen.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		31BE7BE42D1EB5BB00457F00 /* Lounch */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BE52D1EB5C500457F00 /* LaunchScreen.swift */,
+			);
+			path = Lounch;
+			sourceTree = "<group>";
+		};
+		31BE7BE72D1EB6E800457F00 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BE82D1EB6F000457F00 /* VideoCallScreen.swift */,
+			);
+			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		31BE7BEA2D1EB81F00457F00 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BEB2D1EB82400457F00 /* CustomCameraScreen.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		31BE7BEF2D1ECD4800457F00 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7C072D1ECFD000457F00 /* CallSettingsScreen.swift */,
+				31BE7BFD2D1ECF1A00457F00 /* PrivacySettingsScreen.swift */,
+				31BE7BF02D1ECD4E00457F00 /* ChatSettingsScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		31BE7BF22D1ECD9700457F00 /* GroupChat */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BF32D1ECD9D00457F00 /* GroupChatScreen.swift */,
+			);
+			path = GroupChat;
+			sourceTree = "<group>";
+		};
+		31BE7BF52D1ECDCE00457F00 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BF62D1ECDD600457F00 /* NotificationCenterScreen.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		31BE7BFA2D1ECEE900457F00 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7BFB2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		31BE7C012D1ECF6E00457F00 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7C022D1ECF7300457F00 /* ThemeCustomizationScreen.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		31BE7C042D1ECFA500457F00 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				31BE7C052D1ECFAA00457F00 /* AppWalkthroughScreen.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		31CB40DF2D22C25600DBB008 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				31CB40E02D22C25C00DBB008 /* CustomeTabbarView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31BE7BB82D1EAD6300457F00 /* Winzy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31BE7BC72D1EAD6500457F00 /* Build configuration list for PBXNativeTarget "Winzy" */;
+			buildPhases = (
+				31BE7BB52D1EAD6300457F00 /* Sources */,
+				31BE7BB62D1EAD6300457F00 /* Frameworks */,
+				31BE7BB72D1EAD6300457F00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Winzy;
+			packageProductDependencies = (
+				31CB40DA2D2287C200DBB008 /* FirebaseAuth */,
+				31D7A1312D254E68007B824C /* FirebaseAnalytics */,
+				31D7A1332D254E68007B824C /* FirebaseCrashlytics */,
+				31D7A1352D254E68007B824C /* FirebaseInAppMessaging-Beta */,
+				31D7A1372D254E68007B824C /* FirebaseMessaging */,
+				3134F0132D2688CE004653C8 /* Starscream */,
+				3192E5B52D29252900A93180 /* FirebaseDatabase */,
+			);
+			productName = Winzy;
+			productReference = 31BE7BB92D1EAD6300457F00 /* Winzy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31BE7BB12D1EAD6300457F00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					31BE7BB82D1EAD6300457F00 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = 31BE7BB42D1EAD6300457F00 /* Build configuration list for PBXProject "Winzy" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+				hi,
+				es,
+				fr,
+				ar,
+				"pt-BR",
+				ru,
+				"bn-IN",
+				"ur-PK",
+				Base,
+			);
+			mainGroup = 31BE7BB02D1EAD6300457F00;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3134F0122D2688CE004653C8 /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 31BE7BBA2D1EAD6300457F00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31BE7BB82D1EAD6300457F00 /* Winzy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31BE7BB72D1EAD6300457F00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BE7BD02D1EADC000457F00 /* Preview Assets.xcassets in Resources */,
+				316C13A22D27C877008EDCF4 /* Localizable.xcstrings in Resources */,
+				31BE7BD12D1EADC000457F00 /* Assets.xcassets in Resources */,
+				3192E5B82D2926E600A93180 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31BE7BB52D1EAD6300457F00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BE7C062D1ECFAC00457F00 /* AppWalkthroughScreen.swift in Sources */,
+				31BE7C002D1ECF4700457F00 /* UserAnalyticsActivityScreen.swift in Sources */,
+				31BE7BF92D1ECEB000457F00 /* MediaGalleryScreen.swift in Sources */,
+				31BE7BDD2D1EB18C00457F00 /* ChatDetailScreen.swift in Sources */,
+				31E2BA4F2D2C05D5001046A0 /* PermissionsHelper.swift in Sources */,
+				31BE7BF72D1ECDD600457F00 /* NotificationCenterScreen.swift in Sources */,
+				31BE7BE12D1EB43800457F00 /* StatusScreen.swift in Sources */,
+				31BE7BF12D1ECD4F00457F00 /* ChatSettingsScreen.swift in Sources */,
+				31CB40D82D22835300DBB008 /* WinzyChatOTPScreen.swift in Sources */,
+				31BE7BE62D1EB5C500457F00 /* LaunchScreen.swift in Sources */,
+				31BE7BD62D1EADCA00457F00 /* WinzyChatLoginScreen.swift in Sources */,
+				31BE7BEE2D1EC30D00457F00 /* SearchScreen.swift in Sources */,
+				31BE7BF42D1ECD9D00457F00 /* GroupChatScreen.swift in Sources */,
+				31BE7C032D1ECF7400457F00 /* ThemeCustomizationScreen.swift in Sources */,
+				31BE7BD22D1EADC000457F00 /* ContentView.swift in Sources */,
+				31BE7BD82D1EAF7800457F00 /* UserListScreen.swift in Sources */,
+				31BE7BDF2D1EB2B300457F00 /* EditProfileScreen.swift in Sources */,
+				317249C62D23C76F002D39C4 /* Custom.swift in Sources */,
+				31E2BA4D2D2C00CB001046A0 /* ImagePicker.swift in Sources */,
+				31BE7BEC2D1EB82400457F00 /* CustomCameraScreen.swift in Sources */,
+				31BE7BE32D1EB52000457F00 /* CallHistoryScreen.swift in Sources */,
+				3134F0162D269AEF004653C8 /* String+ext.swift in Sources */,
+				31BE7C082D1ECFD100457F00 /* CallSettingsScreen.swift in Sources */,
+				31BE7BDB2D1EB03C00457F00 /* AddNewChatScreen.swift in Sources */,
+				31BE7BD32D1EADC000457F00 /* WinzyApp.swift in Sources */,
+				31CB40E12D22C26B00DBB008 /* CustomeTabbarView.swift in Sources */,
+				31BE7BFC2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift in Sources */,
+				31BE7BE92D1EB6F100457F00 /* VideoCallScreen.swift in Sources */,
+				31BE7BFE2D1ECF1A00457F00 /* PrivacySettingsScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		31BE7BC52D1EAD6500457F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		31BE7BC62D1EAD6500457F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		31BE7BC82D1EAD6500457F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Winzy/Winzy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Winzy/Preview Content\"";
+				DEVELOPMENT_TEAM = UF4MVM5DN5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Winzy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "We need access to your contacts to check registered users.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone for video recording";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kirit.Winzy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		31BE7BC92D1EAD6500457F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Winzy/Winzy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Winzy/Preview Content\"";
+				DEVELOPMENT_TEAM = UF4MVM5DN5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Winzy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "We need access to your contacts to check registered users.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone for video recording";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kirit.Winzy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31BE7BB42D1EAD6300457F00 /* Build configuration list for PBXProject "Winzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BE7BC52D1EAD6500457F00 /* Debug */,
+				31BE7BC62D1EAD6500457F00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31BE7BC72D1EAD6500457F00 /* Build configuration list for PBXNativeTarget "Winzy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BE7BC82D1EAD6500457F00 /* Debug */,
+				31BE7BC92D1EAD6500457F00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3134F0122D2688CE004653C8 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.8;
+			};
+		};
+		31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3134F0132D2688CE004653C8 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3134F0122D2688CE004653C8 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		3192E5B52D29252900A93180 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		31CB40DA2D2287C200DBB008 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		31D7A1312D254E68007B824C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		31D7A1332D254E68007B824C /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		31D7A1352D254E68007B824C /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		31D7A1372D254E68007B824C /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31CB40D92D2287C200DBB008 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 31BE7BB12D1EAD6300457F00 /* Project object */;
+}
