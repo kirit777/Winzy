@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3111284E2D4DF9D200C3E9C9 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3111284D2D4DF9D200C3E9C9 /* ChatManager.swift */; };
 		3134F0142D2688CE004653C8 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 3134F0132D2688CE004653C8 /* Starscream */; };
 		3134F0162D269AEF004653C8 /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134F0152D269ADF004653C8 /* String+ext.swift */; };
 		316C13A22D27C877008EDCF4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 316C13A12D27C877008EDCF4 /* Localizable.xcstrings */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3111284D2D4DF9D200C3E9C9 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		3134F0152D269ADF004653C8 /* String+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
 		316C13A12D27C877008EDCF4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		317249C52D23C76C002D39C4 /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		317249C42D23C766002D39C4 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				3111284D2D4DF9D200C3E9C9 /* ChatManager.swift */,
 				31E2BA4E2D2C05CA001046A0 /* PermissionsHelper.swift */,
 				31E2BA4C2D2C00C4001046A0 /* ImagePicker.swift */,
 				3134F0152D269ADF004653C8 /* String+ext.swift */,
@@ -396,6 +399,7 @@
 				31BE7C082D1ECFD100457F00 /* CallSettingsScreen.swift in Sources */,
 				31BE7BDB2D1EB03C00457F00 /* AddNewChatScreen.swift in Sources */,
 				31BE7BD32D1EADC000457F00 /* WinzyApp.swift in Sources */,
+				3111284E2D4DF9D200C3E9C9 /* ChatManager.swift in Sources */,
 				31CB40E12D22C26B00DBB008 /* CustomeTabbarView.swift in Sources */,
 				31BE7BFC2D1ECEEF00457F00 /* FriendRequestsContactsScreen.swift in Sources */,
 				31BE7BE92D1EB6F100457F00 /* VideoCallScreen.swift in Sources */,

@@ -18,7 +18,6 @@ struct WinzyChatOTPScreen: View {
     @State var isSendingOTP: Bool = false
     @State var isVerificatinDone: Bool = false
     @State var verificationID:String = ""
-    @State var webSocketManager =  ChatSocketService()
     var username: String = ""
     var serverURL: String = ""
     var roomCode: String = ""

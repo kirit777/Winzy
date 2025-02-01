@@ -15,14 +15,14 @@ struct ChatDetailScreen: View {
 //        let text: String
 //        let isSentByUser: Bool
 //    }
-    @StateObject private var viewModel = ChatDetailViewModel()
-    @StateObject private var chatManager = ChatManager()
+    
+    @State  var chatManager = ChatManager()
     @State private var newMessage: String = ""
     @State private var selectedMedia: [MediaItem] = []
     @State private var isPickerPresented = false
     
     
-    @State private var messages: [ChatMessage] = [
+    @State private var messages: [Message] = [
         
     ]
     @Environment(\.presentationMode) var presentationMode
@@ -121,8 +121,12 @@ struct ChatDetailScreen: View {
                     // Send Button
                     Button(action: {
                         if !newMessage.isEmpty {
-                            viewModel.sendMessage(chatID: viewModel.generateChatID(currentUserPhone: "7043805425", otherUserPhone: "9265107070"), message: newMessage)
-                            newMessage = ""
+                            chatManager.sendMessage(chatId: chatManager.generateChatId(myNumber: "7043805425", otherUserNumber: "9265107070"), messageId: "\(UUID())", isSendBy: "7043805425", content: newMessage, timeStamp: 14.25, completion: { result in 
+                                if result {
+                                    newMessage = ""
+                                }
+                            })
+                            
                         }
                     }) {
                         Image(systemName: "paperplane.fill")
@@ -155,17 +159,22 @@ struct ChatDetailScreen: View {
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            viewModel.fetchMessages(chatID: viewModel.generateChatID(currentUserPhone: "7043805425", otherUserPhone: "9265107070") )
+            
+            chatManager.fetchMessages(for: chatManager.generateChatId(myNumber: "7043805425", otherUserNumber: "9265107070"), completion: {
+                newMessages in
+                
+                messages = newMessages
+            })
         }
     }
 }
 
 struct ChatBubble: View {
-    let message: ChatMessage
+    let message: Message
     
     var body: some View {
         HStack {
-            if message.isFromCurrentUser {
+            if message.isSendBy == "7043805425" {
                 Spacer()
                 Text(message.content)
                     .padding()

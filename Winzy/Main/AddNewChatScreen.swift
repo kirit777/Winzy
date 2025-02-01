@@ -17,7 +17,7 @@ struct AddNewChatScreen: View {
         let phoneNumber: String
         let image: UIImage // Use system name or URL
     }
-    @State var chatManager:MyChatManager = MyChatManager()
+    @State var chatManager:ChatManager = ChatManager()
     @Environment(\.presentationMode) var presentationMode
     @State private var contacts : [Contact] = [
        
@@ -26,7 +26,6 @@ struct AddNewChatScreen: View {
     @State  var registeredContacts: [Contact] = []
     @State private var isFetchingContacts = false
     @State private var errorMessage: String?
-    @State var webSocketManager = ChatSocketService()
     @State var isLoading:Bool = true
     func fetchRegisteredContacts(){
        // var registeredContacts: [Contact] = []
@@ -281,13 +280,11 @@ struct AddNewChatScreen: View {
                 //ContactRow
                 let currentUserPhone = "7043805425"
                 let otherUserPhone = "9265107070"
-                chatManager.checkIfChatExists(currentUserPhone: currentUserPhone, otherUserPhone: otherUserPhone) { exists in
-                    if exists {
-                        chatManager.createNewChat(currentUserPhone: currentUserPhone, otherUserPhone: otherUserPhone, chatIDString: { chatIDString in
-                            
-                        })
+                chatManager.checkIfChatExists(with: currentUserPhone, myNumber: otherUserPhone) { chatID in
+                    if let id = chatID {
+                        
                     }else{
-                        chatManager.createNewChat(currentUserPhone: currentUserPhone, otherUserPhone: otherUserPhone, chatIDString: { chatIDString in
+                        chatManager.createNewChat(with: otherUserPhone, userName: "Kirit", myNumber: currentUserPhone, myName: "kiran", completion: { chatIDCreated in 
                             
                         })
                     }

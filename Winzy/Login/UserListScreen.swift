@@ -26,19 +26,17 @@ struct UserListScreen: View {
     @State var isAddNewChatPresent : Bool = false
     @State var showMenu = false
     @State var currentChatID:String = ""
+    @State  var chatManager = ChatManager()
     
     func checkChat(numberOtherUser:String){
         let currentUserNumer = "9265107070"
-        findExistingChat(userA: currentUserNumer, userB: numberOtherUser) { existingChat in
+        chatManager.findExistingChat(userA: currentUserNumer, userB: numberOtherUser) { existingChat in
             if let chat = existingChat {
-                print("Opening existing chat with ID: \(chat.chatId)")
-                //openChatWindow(chatId: chat.chatId)
+                
                 isDetailViewActive = true
             } else {
-                let newChat = createNewChat(userA: currentUserNumer, userB: numberOtherUser)
-                print("Created new chat with ID: \(newChat.chatId)")
-               // openChatWindow(chatId: newChat.chatId)
-                isDetailViewActive = true
+
+                isDetailViewActive = false
             }
         }
     }
@@ -94,7 +92,7 @@ struct UserListScreen: View {
                     VStack(spacing: 15) {
                         ForEach(chatUsers) { user in
                             Button(action: {
-//                                isDetailViewActive = true
+                                isDetailViewActive = true
                                 checkChat(numberOtherUser: "7043805425")
                             }) {
                                 UserRow(chatUser: user)

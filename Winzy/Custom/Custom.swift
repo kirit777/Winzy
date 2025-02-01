@@ -31,90 +31,6 @@ struct MessageFire: Identifiable {
     var timestamp: Double // Timestamp of when the message was sent
 }
 
-class ChatDetailViewModel: ObservableObject {
-    @Published var messages: [MessageFire] = []
-    var ref: DatabaseReference! = Database.database().reference()
-    
-    func generateChatID(currentUserPhone: String, otherUserPhone: String) -> String {
-        // Sort the two phone numbers to ensure consistency in order
-        let sortedPhones = [currentUserPhone, otherUserPhone].sorted()
-        
-        // Combine the sorted phone numbers into a unique chat ID
-        return "\(sortedPhones[0])_\(sortedPhones[1])"
-    }
-    
-    func fetchMessages(chatID: String) {
-        ref.child("chats").child(chatID).child("messages").observe(.value) { snapshot in
-            var loadedMessages: [MessageFire] = []
-            
-            for child in snapshot.children {
-                if let snapshot = child as? DataSnapshot,
-                   let messageData = snapshot.value as? [String: Any],
-                   let sender = messageData["sender"] as? String,
-                   let message = messageData["message"] as? String {
-                    let message = MessageFire(id: snapshot.key, sender: sender, message: message, timestamp: 19.74)
-                    loadedMessages.append(message)
-                }
-            }
-            self.messages = loadedMessages
-            print(self.messages)
-        }
-    }
-    
-    func sendMessage(chatID:String,message:String) {
-        let newMessageData: [String: Any] = [
-            "sender": "current_user_phone_number", // Replace with current user's phone number
-            "message": message
-        ]
-        
-        let messageID = ref.child("chats").child(chatID).child("messages").childByAutoId().key
-        ref.child("chats").child(chatID).child("messages").child(messageID!).setValue(newMessageData)
-    }
-    
-}
-
-
-class MyChatManager: ObservableObject {
-    var ref: DatabaseReference! = Database.database().reference()
-    
-    // Check if the chat already exists between the current user and the other user
-    func checkIfChatExists(currentUserPhone: String, otherUserPhone: String, completion: @escaping (Bool) -> Void) {
-        let chatID = generateChatID(currentUserPhone: currentUserPhone, otherUserPhone: otherUserPhone)
-        
-        ref.child("chats").child(chatID).observeSingleEvent(of: .value, with: { snapshot in
-            if snapshot.exists() {
-                // Chat already exists
-                completion(true)
-            } else {
-                // Chat doesn't exist
-                completion(false)
-            }
-        })
-    }
-    
-    // Create a unique chat ID using the user phone numbers
-    func generateChatID(currentUserPhone: String, otherUserPhone: String) -> String {
-        // Sort the two phone numbers to ensure consistency in order
-        let sortedPhones = [currentUserPhone, otherUserPhone].sorted()
-        
-        // Combine the sorted phone numbers into a unique chat ID
-        return "\(sortedPhones[0])_\(sortedPhones[1])"
-    }
-    
-    // Create a new chat between the users
-    func createNewChat(currentUserPhone: String, otherUserPhone: String,chatIDString: @escaping (String) -> Void) {
-        let chatID = generateChatID(currentUserPhone: currentUserPhone, otherUserPhone: otherUserPhone)
-        
-        // Create a new chat entry in Firebase
-        let chatData: [String: Any] = [
-            "user1_id": currentUserPhone,
-            "user2_id": otherUserPhone
-        ]
-        
-        ref.child("chats").child(chatID).setValue(chatData)
-        chatIDString(chatID)
-    }
-}
 
 
 //struct ChatMessage: Codable, Identifiable {
@@ -123,115 +39,6 @@ class MyChatManager: ObservableObject {
 //    let content: String
 //    let timestamp: Date
 //}
-
-class ChatSocketService: WebSocketDelegate {
-    
-    
-    func didReceive(event: Starscream.WebSocketEvent, client: any Starscream.WebSocketClient) {
-        
-    }
-    
-    static let shared = ChatSocketService()
-     var socket: WebSocket?
-     var socketIsConnected: Bool = false
-     var serverURL: URL {
-        URL(string: "wss://ap2.pusher.com/app/1917423?protocol=7&client=js&version=4.3.1&flash=false")!
-    }
-
-    private var messages: [String: [ChatMessage]] = [:] // Stores messages by chatId
-
-    // MARK: - WebSocket Initialization
-
-    init() {
-        var request = URLRequest(url: serverURL)
-        request.timeoutInterval = 5
-        socket = WebSocket(request: request)
-        socket?.delegate = self
-    }
-
-    func connect() {
-        socket?.connect()
-    }
-
-    func disconnect() {
-        socket?.disconnect()
-    }
-
-    func generateChatId(for firstNumber: String, and secondNumber: String) -> String {
-        let sortedNumbers = [firstNumber, secondNumber].sorted()
-        return "chat_\(sortedNumbers[0])_\(sortedNumbers[1])"
-    }
-    // MARK: - Chat Handling
-
-    /// Creates or opens a chat between two users using chatId
-    func createChatIfNotExists(chatId: String) {
-        if messages[chatId] == nil {
-            messages[chatId] = []
-            print("Chat created with ID: \(chatId)")
-        } else {
-            print("Chat already exists for ID: \(chatId)")
-        }
-    }
-
-    /// Fetch all messages for a given chatId
-    func fetchMessages(for chatId: String) -> [ChatMessage] {
-        return messages[chatId] ?? []
-    }
-
-    /// Send a message to a specific chatId
-    func sendMessage(_ message: ChatMessage, to chatId: String) {
-        guard socketIsConnected == true else {
-            print("Socket is not connected. Connect before sending messages.")
-            return
-        }
-        do {
-            let messageData = try JSONEncoder().encode(message)
-            if var existingMessages = messages[chatId] {
-                existingMessages.append(message)
-                messages[chatId] = existingMessages
-            } else {
-                messages[chatId] = [message]
-            }
-            socket?.write(string: String(data: messageData, encoding: .utf8)!)
-            print("Message sent to chat ID: \(chatId)")
-        } catch {
-            print("Failed to encode message: \(error)")
-        }
-    }
-
-    // MARK: - WebSocketDelegate Methods
-
-    func didReceive(event: WebSocketEvent, client: WebSocket) {
-        switch event {
-        case .connected(_):
-            socketIsConnected = true
-            print("Socket connected")
-        case .disconnected(let reason, let code):
-            print("Socket disconnected: \(reason) with code: \(code)")
-        case .text(let text):
-            print("Received message: \(text)")
-            if let data = text.data(using: .utf8),
-               let chatMessage = try? JSONDecoder().decode(ChatMessage.self, from: data) {
-                addMessage(chatMessage, to: "example_chat_id") // Example usage
-            }
-        case .error(let error):
-            print("Socket error: \(String(describing: error))")
-        default:
-            break
-        }
-    }
-
-    // Helper to add messages internally
-    private func addMessage(_ message: ChatMessage, to chatId: String) {
-        if var existingMessages = messages[chatId] {
-            existingMessages.append(message)
-            messages[chatId] = existingMessages
-        } else {
-            messages[chatId] = [message]
-        }
-    }
-}
-
 
 
 
@@ -597,122 +404,23 @@ struct BigCrazyLoadingView: View {
 }
 
 //detail chat
-struct Chat {
-    let chatId: String
-    let userA: String
-    let userB: String
-    var messages: [ChatMessage]
-}
+//struct Chat {
+//    let chatId: String
+//    let userA: String
+//    let userB: String
+//    var messages: [Message]
+//}
 
-struct ChatMessage : Codable,Identifiable {
-    let id: UUID
-    let sender: String
-    let content: String
-    let timestamp: Date
-    
-    // Replace "currentUser" with the actual user's identifier
-    var isFromCurrentUser: Bool {
-        return sender == "currentUser"
-    }
-}
-
-class DatabaseService {
-    private static var chats: [String: Chat] = [:]
-    static var webSocketManager: ChatSocketService?
-    
-    static func fetchChat(by chatId: String, completion: @escaping (Chat?) -> Void) {
-        let chat = chats[chatId]
-        completion(chat)
-    }
-    
-    static func saveChat(_ chat: Chat) {
-        // Save the chat to the database (in-memory for now)
-        chats[chat.chatId] = chat
-        
-        // Create a WebSocket connection for this chatId
-        let serverUrl = URL(string: "wss://ap2.pusher.com/app/1917423?protocol=7&client=js&version=4.3.1&flash=false")!
-        webSocketManager = ChatSocketService()
-        webSocketManager?.connect()
-        
-        webSocketManager?.createChatIfNotExists(chatId: chat.chatId)
-    }
-    
-    static func fetchMessages(for chatId: String, completion: @escaping ([ChatMessage]) -> Void) {
-        guard let chat = chats[chatId] else {
-            completion([]) // No messages found for this chat
-            return
-        }
-        completion(chat.messages)
-    }
-    
-    static func addMessage(_ message: ChatMessage, to chatId: String) {
-        guard var chat = chats[chatId] else { return }
-        chat.messages.append(message)
-        chats[chatId] = chat
-        
-        // Send the message via WebSocket
-        webSocketManager?.sendMessage(message, to: chatId)
-    }
-}
+//struct ChatMessage : Codable,Identifiable {
+//    let id: UUID
+//    let sender: String
+//    let content: String
+//    let timestamp: Date
+//    
+//    // Replace "currentUser" with the actual user's identifier
+//    var isFromCurrentUser: Bool {
+//        return sender == "currentUser"
+//    }
+//}
 
 
-
-
-
-class ChatManager: ObservableObject {
-    @Published var currentChat: Chat?
-    @Published var messages: [ChatMessage] = []
-    
-    // Fetch chat and messages
-    func openChat(with chatId: String) {
-        DatabaseService.fetchChat(by: chatId) { [weak self] chat in
-            if let chat = chat {
-                self?.currentChat = chat
-                self?.fetchMessages(for: chatId)
-            }
-        }
-    }
-    
-    // Fetch messages for the chat
-    func fetchMessages(for chatId: String) {
-        DatabaseService.fetchMessages(for: chatId) { [weak self] messages in
-            DispatchQueue.main.async {
-                self?.messages = messages
-                print(messages)
-            }
-        }
-    }
-    
-    // Add a new message to the chat
-    func sendMessage(_ message: ChatMessage) {
-        guard let chatId = currentChat?.chatId else { return }
-        DatabaseService.addMessage(message, to: chatId)
-        fetchMessages(for: chatId)  // Refresh the messages after sending
-    }
-}
-
-
-func findExistingChat(userA: String, userB: String, completion: @escaping (Chat?) -> Void) {
-    let chatId = generateChatId(userA: userA, userB: userB)
-    
-    // Simulate a database or server query to check chat existence
-    DatabaseService.fetchChat(by: chatId) { chat in
-        if let chat = chat {
-            completion(chat) // Chat found
-        } else {
-            completion(nil)  // No chat found
-        }
-    }
-}
-
-func generateChatId(userA: String, userB: String) -> String {
-    return [userA, userB].sorted().joined(separator: "-") // Ensure unique ID regardless of order
-}
-
-func createNewChat(userA: String, userB: String) -> Chat {
-    let newChatId = generateChatId(userA: userA, userB: userB)
-    let newChat = Chat(chatId: newChatId, userA: userA, userB: userB, messages: [])
-    
-    DatabaseService.saveChat(newChat)
-    return newChat
-}

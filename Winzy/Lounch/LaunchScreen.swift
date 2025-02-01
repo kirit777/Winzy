@@ -11,6 +11,11 @@ struct LaunchScreen: View {
     @State private var scale: CGFloat = 0.5
     @State private var opacity: Double = 0.0
     
+    @State private var dropW = false
+    @State private var showLetters = false
+    
+    let letters = Array("inzy") // Letters that slide in
+    
     var body: some View {
         ZStack {
             // Background Gradient
@@ -27,33 +32,32 @@ struct LaunchScreen: View {
 
             
             VStack {
-                // Animated Icon & App Name
-                VStack {
-                    // Icon with animation
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
+                HStack(spacing: 5) {
+                    Text("W")
+                        .font(.system(size: 80, weight: .bold))
                         .foregroundColor(.white)
-                        .scaleEffect(scale)
-                        .opacity(opacity)
-                        .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: scale)
+                        .offset(y: dropW ? 0 : -300) // Drop from top
+                        .animation(.interpolatingSpring(stiffness: 200, damping: 10).delay(0.1), value: dropW)
                     
-                    // App Name
-                    Text("Winzy")
-                        .font(.system(size: 50, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                        .scaleEffect(scale)
-                        .opacity(opacity)
-                        .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: scale)
-                        .onAppear {
-                            // Trigger animation when the screen appears
-                            scale = 1.2
-                            opacity = 1.0
+                    
+                    HStack(spacing: 2) {
+                        ForEach(letters.indices, id: \.self) { index in
+                            Text(String(letters[index]))
+                                .font(.system(size: 80, weight: .bold))
+                                .foregroundColor(.white)
+                                .offset(x: showLetters ? 0 : 50) // Slide from right
+                                .opacity(showLetters ? 1 : 0) // Fade-in
+                                .animation(.easeOut(duration: 0.3).delay(0.4 + Double(index) * 0.2), value: showLetters)
                         }
+                    }
                 }
-                .padding(.top, 50)
-                
-                Spacer()
+                .padding(.top, 100) // Add padding to simulate ground
+            }
+            .onAppear {
+                dropW = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    showLetters = true
+                }
             }
         }
         .onAppear {
