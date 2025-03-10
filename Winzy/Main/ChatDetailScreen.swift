@@ -20,14 +20,14 @@ struct ChatDetailScreen: View {
     @State private var newMessage: String = ""
     @State private var selectedMedia: [MediaItem] = []
     @State private var isPickerPresented = false
-    
+    @State private var currentChatUserName:String = ""
     
     @State private var messages: [Message] = [
         
     ]
     @Environment(\.presentationMode) var presentationMode
     var chatId: String
-    
+    var otherUser:ChatUser?
     
     var body: some View {
         ZStack {
@@ -58,7 +58,7 @@ struct ChatDetailScreen: View {
                     
                     Spacer()
                     
-                    Text("Username")
+                    Text(currentChatUserName)
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     
@@ -121,7 +121,15 @@ struct ChatDetailScreen: View {
                     // Send Button
                     Button(action: {
                         if !newMessage.isEmpty {
-                            chatManager.sendMessage(chatId: chatManager.generateChatId(myNumber: "7043805425", otherUserNumber: "9265107070"), messageId: "\(UUID())", isSendBy: "7043805425", content: newMessage, timeStamp: 14.25, completion: { result in 
+                            
+                            var currentNumber = "7043805425"
+                            if let currentUserPhoneString = UserDefaultsManager.shared.get(forKey: UserDefaultsKeys.userPhone.rawValue, as: String.self) {
+                                let trimmedString = String(currentUserPhoneString.dropFirst(3))
+                                currentNumber = trimmedString
+                            }
+                            
+                            
+                            chatManager.sendMessage(chatId: chatManager.generateChatId(myNumber: currentNumber, otherUserNumber: "9265107070"), messageId: "\(UUID())", isSendBy: currentNumber, content: newMessage, timeStamp: 14.25, completion: { result in
                                 if result {
                                     newMessage = ""
                                 }
@@ -160,11 +168,19 @@ struct ChatDetailScreen: View {
         .navigationBarBackButtonHidden(true)
         .onAppear {
             
-            chatManager.fetchMessages(for: chatManager.generateChatId(myNumber: "7043805425", otherUserNumber: "9265107070"), completion: {
-                newMessages in
-                
-                messages = newMessages
-            })
+            currentChatUserName = otherUser!.name
+            
+            var currentNumber = "7043805425"
+            
+            if let currentUserPhoneString = UserDefaultsManager.shared.get(forKey: UserDefaultsKeys.userPhone.rawValue, as: String.self) {
+                let trimmedString = String(currentUserPhoneString.dropFirst(3))
+                currentNumber = trimmedString
+            }
+            
+            chatManager.fetchMessages(for: chatManager.generateChatId(myNumber: currentNumber, otherUserNumber: "9265107070")) { newMessages in
+                messages = newMessages.sorted { $0.timeStamp < $1.timeStamp } // Sort in ascending order
+            }
+
         }
     }
 }

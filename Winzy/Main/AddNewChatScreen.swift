@@ -278,7 +278,13 @@ struct AddNewChatScreen: View {
                 // Action to start a new chat
                 print("Start chat with \(contact.name)")
                 //ContactRow
-                let currentUserPhone = "7043805425"
+                var currentUserPhone = "7043805425"
+                
+                if let currentUserPhoneString = UserDefaultsManager.shared.get(forKey: UserDefaultsKeys.userPhone.rawValue, as: String.self) {
+                    currentUserPhone = currentUserPhoneString
+                }
+                
+                
                 let otherUserPhone = "9265107070"
                 chatManager.checkIfChatExists(with: currentUserPhone, myNumber: otherUserPhone) { chatID in
                     if let id = chatID {

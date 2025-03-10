@@ -8,35 +8,33 @@
 import SwiftUI
 
 struct UserListScreen: View {
-    struct ChatUser: Identifiable {
-        let id = UUID()
-        let name: String
-        let lastMessage: String
-        let unreadCount: Int
-        let lastMessageTime: String
-        let image: String // Use system name or URL
-    }
+    
     
     @State private var chatUsers = [
-        ChatUser(name: "John Doe", lastMessage: "Hey, what's up?", unreadCount: 3, lastMessageTime: "2:15 PM", image: "person.crop.circle"),
-        ChatUser(name: "Jane Smith", lastMessage: "Let's catch up soon!", unreadCount: 0, lastMessageTime: "1:45 PM", image: "person.crop.circle.fill"),
-        ChatUser(name: "Alex Johnson", lastMessage: "Got it, thanks!", unreadCount: 5, lastMessageTime: "12:30 PM", image: "person.crop.circle.badge.plus"),
+        ChatUser(name: "John Doe", number: "9265107070", lastMessage: "Hey, what's up?", unreadCount: 3, lastMessageTime: "2:15 PM", image: "person.crop.circle"),
+        ChatUser(name: "Jane Smith", number: "9265107070", lastMessage: "Let's catch up soon!", unreadCount: 0, lastMessageTime: "1:45 PM", image: "person.crop.circle.fill"),
+        ChatUser(name: "Alex Johnson", number: "9265107070", lastMessage: "Got it, thanks!", unreadCount: 5, lastMessageTime: "12:30 PM", image: "person.crop.circle.badge.plus"),
     ]
     @State var isDetailViewActive : Bool = false
     @State var isAddNewChatPresent : Bool = false
     @State var showMenu = false
     @State var currentChatID:String = ""
     @State  var chatManager = ChatManager()
-    
     func checkChat(numberOtherUser:String){
-        let currentUserNumer = "9265107070"
+        var currentUserNumer = "9265107070"
+        if let currentUserPhone = UserDefaultsManager.shared.get(forKey: UserDefaultsKeys.userPhone.rawValue, as: String.self) {
+            let trimmedString = String(currentUserPhone.dropFirst(3))
+            currentUserNumer = trimmedString
+        }
+        
         chatManager.findExistingChat(userA: currentUserNumer, userB: numberOtherUser) { existingChat in
             if let chat = existingChat {
                 
+//                chatUsers.append(ChatUser(name: "John Doe", lastMessage: "Hey, what's up?", unreadCount: 3, lastMessageTime: "2:15 PM", image: "person.crop.circle"))
                 isDetailViewActive = true
             } else {
 
-                isDetailViewActive = false
+               // isDetailViewActive = false
             }
         }
     }
@@ -98,7 +96,7 @@ struct UserListScreen: View {
                                 UserRow(chatUser: user)
                             }.buttonStyle(.plain)
                                 .fullScreenCover(isPresented: $isDetailViewActive, content: {
-                                    ChatDetailScreen(chatId: currentChatID)
+                                    ChatDetailScreen(chatId: currentChatID,otherUser:user)
                                 })
                         }
                     }
@@ -106,6 +104,26 @@ struct UserListScreen: View {
                 }
 //                NavigationLink("", destination: ChatDetailScreen(isDetailViewActive: $isDetailViewActive), isActive: $isDetailViewActive)
 //                                    .hidden()
+            }
+            .onAppear(){
+                var currentUserNumer = "9265107070"
+                if let currentUserPhone = UserDefaultsManager.shared.get(forKey: UserDefaultsKeys.userPhone.rawValue, as: String.self) {
+//                    let trimmedString = String(currentUserPhone.dropFirst(3))
+                    currentUserNumer = currentUserPhone
+                }
+                
+                chatManager.fetchChatContacts(for: currentUserNumer) { contacts, error in
+                    if let error = error {
+                        print("Error fetching contacts: \(error.localizedDescription)")
+                    } else if let contacts = contacts {
+                        if contacts.count > 0 {
+                            chatUsers.removeAll()
+                            chatUsers = contacts
+                        }
+                    } else {
+                        print("No contacts found.")
+                    }
+                }
             }
             
             Button(action: {
@@ -130,7 +148,7 @@ struct UserListScreen: View {
 }
 
 struct UserRow: View {
-    let chatUser: UserListScreen.ChatUser
+    let chatUser: ChatUser
     
     var body: some View {
         HStack(spacing: 15) {

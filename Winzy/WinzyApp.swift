@@ -19,8 +19,9 @@ struct WinzyApp: App {
     
     var body: some Scene {
         WindowGroup {
+            LaunchScreen()
             //AppWalkthroughScreen()
-            CustomeTabbarView()
+            //CustomeTabbarView()
         }
     }
 }

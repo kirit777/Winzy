@@ -17,6 +17,17 @@ struct ContactFirebase: Identifiable {
     let verificationID: String
 }
 
+struct ChatUser: Identifiable {
+    let id = UUID()
+    var chatID: String?
+    let name: String
+    let number:String
+    let lastMessage: String
+    let unreadCount: Int
+    let lastMessageTime: String
+    let image: String // Use system name or URL
+}
+
 
 struct ChatResponse: Codable {
     var chatID: String?
@@ -309,6 +320,12 @@ class UserDefaultsManager {
     }
 }
 
+
+enum UserDefaultsKeys: String {
+    case userName = "userName"
+    case isLoggedIn = "isLoggedIn"
+    case userPhone = "userPhone"
+}
 
 struct ShapeConfig: Identifiable {
     let id = UUID()

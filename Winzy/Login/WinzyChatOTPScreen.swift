@@ -75,6 +75,11 @@ struct WinzyChatOTPScreen: View {
             if snapshot.exists() {
                 // If phone number exists, don't add new entry
                 completion(false, "Phone number already exists.")
+                
+                UserDefaultsManager.shared.set(contact.phoneNumber, forKey: UserDefaultsKeys.userPhone.rawValue)
+                UserDefaultsManager.shared.set("1", forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+                
+                
             } else {
                 // If phone number doesn't exist, create new entry
                 let userID = contact.phoneNumber //ref.child("contacts").childByAutoId().key // Automatically generate a unique ID for the new entry
@@ -93,6 +98,8 @@ struct WinzyChatOTPScreen: View {
                         completion(false, "Failed to add user: \(error.localizedDescription)")
                     } else {
                         completion(true, "User added successfully.")
+                        UserDefaultsManager.shared.set(contact.phoneNumber, forKey: UserDefaultsKeys.userPhone.rawValue)
+                        UserDefaultsManager.shared.set("1", forKey: UserDefaultsKeys.isLoggedIn.rawValue)
                     }
                 }
             }

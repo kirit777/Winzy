@@ -113,6 +113,61 @@ class ChatManager {
             }
         }
     }
+    
+    func fetchChatContacts(for userA: String, completion: @escaping ([ChatUser]?, Error?) -> Void) {
+        let databaseRef = Database.database().reference()
+        
+        databaseRef.child("ChatList").observeSingleEvent(of: .value, with: { snapshot in
+            var chatContacts: [ChatUser] = []
+            
+            guard let children = snapshot.children.allObjects as? [DataSnapshot] else {
+                completion(nil, nil) // No data found
+                return
+            }
+            
+            for child in children {
+                guard let chatData = child.value as? [String: Any],
+                      let chatId = chatData["ChatId"] as? String,
+                      let user1Name = chatData["User1Name"] as? String,
+                      let user1Number = chatData["User1Number"] as? String,
+                      let user2Name = chatData["User2Name"] as? String,
+                      let user2Number = chatData["User2Number"] as? String else {
+                    continue // Skip this chat if data is incomplete
+                }
+                
+                let id = UUID()
+                let name: String
+                let lastMessage: String
+                let unreadCount: Int
+                let lastMessageTime: String
+                let image: String // Use system name or URL
+                
+                
+                // Check if userA is involved in the chat
+                if user1Number == userA || user2Number == userA {
+                    
+                    let contact = ChatUser(chatID: chatId , name: user1Number == userA ? user2Name : user1Name, number: user1Number == userA ? user2Number : user1Number, lastMessage: "Hey, what's up?", unreadCount: 3, lastMessageTime: "2:15 PM", image: "person.crop.circle")
+                    
+//                    
+//                    let contact = ChatUser(
+//                        chatID: chatId,
+//                        name: user1Number == userA ? user2Name : user1Name, // Get the other person's name
+//                        number: user1Number == userA ? user2Number : user1Number // Get the other person's number
+//                    )
+                    chatContacts.append(contact)
+                }
+            }
+            
+            completion(chatContacts, nil) // Return all found contacts
+        }) { error in
+            completion(nil, error) // Handle any errors
+        }
+    }
+
+
+
+    
+    
 }
 
 struct Chat {
